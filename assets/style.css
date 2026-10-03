@@ -3,6 +3,11 @@
   --ink-soft: #6b5a8a;
   --rule: #ded7e8;
   --bg: #ffffff;
+  /* Text sizes: change these to resize text across the whole site */
+  --size-body: 1.0625rem;   /* normal paragraph text */
+  --size-brand: 1.5rem;     /* your name in the header */
+  --size-nav: 1.0625rem;    /* About / Research / ... links */
+  --size-heading: 1.25rem;  /* section headings (Research, Teaching) */
 }
 @media (prefers-color-scheme: dark) {
   :root { --ink: #e6defa; --ink-soft: #b5a8d3; --rule: #3a2f57; --bg: #17111f; }
@@ -12,7 +17,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.0625rem; line-height: 1.7;
+  font-size: var(--size-body); line-height: 1.7;
 }
 a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -23,9 +28,9 @@ header.site {
   max-width: 1120px; margin: 0 auto; padding: 28px 24px 8px;
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 32px;
 }
-.brand { font-weight: 500; font-size: 1.15rem; text-decoration: none; }
+.brand { font-weight: 500; font-size: var(--size-brand); text-decoration: none; }
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 22px; }
-nav a { text-decoration: none; padding: 2px 0; border-bottom: 1px solid transparent; }
+nav a { font-size: var(--size-nav); text-decoration: none; padding: 2px 0; border-bottom: 1px solid transparent; }
 nav a:hover { border-bottom-color: var(--ink); }
 nav a[aria-current="page"] { border-bottom-color: var(--ink); }
 
@@ -33,7 +38,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; }
 
 /* About */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.about .lead { font-weight: 500; font-size: 1.2rem; line-height: 1.55; margin-top: 0; }
+.about .lead { font-weight: 500; font-size: var(--size-body); margin-top: 0; }
 .about img { width: 100%; height: auto; display: block; }
 @media (max-width: 760px) {
   .about { grid-template-columns: 1fr; gap: 24px; }
@@ -42,7 +47,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; }
 
 /* Research / lists */
 .prose { max-width: 760px; }
-.prose h2 { font-size: 1.25rem; font-weight: 500; margin: 2.2em 0 .7em; }
+.prose h2 { font-size: var(--size-heading); font-weight: 500; margin: 2.2em 0 .7em; }
 .prose h2:first-child { margin-top: 0; }
 .pubs { list-style: none; padding: 0; margin: 0; }
 .pubs li { margin: 0 0 1.15em; font-weight: 500; }
