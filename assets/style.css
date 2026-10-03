@@ -1,0 +1,90 @@
+:root {
+  --ink: #3c2069;
+  --ink-soft: #6b5a8a;
+  --rule: #ded7e8;
+  --bg: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e6defa; --ink-soft: #b5a8d3; --rule: #3a2f57; --bg: #17111f; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem; line-height: 1.7;
+}
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; background: var(--bg); padding: 6px 10px; z-index: 10; }
+
+header.site {
+  max-width: 1120px; margin: 0 auto; padding: 28px 24px 8px;
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 32px;
+}
+.brand { font-weight: 500; font-size: 1.15rem; text-decoration: none; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 22px; }
+nav a { text-decoration: none; padding: 2px 0; border-bottom: 1px solid transparent; }
+nav a:hover { border-bottom-color: var(--ink); }
+nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+
+main { max-width: 1120px; margin: 0 auto; padding: 40px 24px 56px; }
+
+/* About */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.about .lead { font-weight: 500; font-size: 1.2rem; line-height: 1.55; margin-top: 0; }
+.about img { width: 100%; height: auto; display: block; }
+@media (max-width: 760px) {
+  .about { grid-template-columns: 1fr; gap: 24px; }
+  .about figure { order: -1; }
+}
+
+/* Research / lists */
+.prose { max-width: 760px; }
+.prose h2 { font-size: 1.25rem; font-weight: 500; margin: 2.2em 0 .7em; }
+.prose h2:first-child { margin-top: 0; }
+.pubs { list-style: none; padding: 0; margin: 0; }
+.pubs li { margin: 0 0 1.15em; font-weight: 500; }
+.pubs .note { font-weight: 400; }
+.courses { margin: 0 0 1.5em; padding-left: 1.2em; }
+.courses li { margin: .35em 0; }
+.prose h2.course-h { margin-top: 1.8em; }
+
+/* Fieldwork grid */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 24px; list-style: none; margin: 0; padding: 0; }
+.grid figure { margin: 0; }
+.grid button, .masonry button {
+  display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; color: inherit; font: inherit;
+}
+.grid img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--rule); }
+.grid figcaption { margin-top: 10px; font-size: .98rem; line-height: 1.5; }
+@media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+
+/* Dogs masonry */
+.masonry { columns: 3; column-gap: 16px; margin-top: 32px; }
+.masonry figure { margin: 0 0 16px; break-inside: avoid; }
+.masonry img { width: 100%; height: auto; display: block; background: var(--rule); }
+@media (max-width: 860px) { .masonry { columns: 2; } }
+@media (max-width: 460px) { .masonry { columns: 1; } }
+
+/* Lightbox */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; color: #fff; overflow: visible; }
+dialog.lb::backdrop { background: rgba(10, 6, 20, .88); }
+.lb-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lb img { max-width: 92vw; max-height: 80vh; width: auto; height: auto; display: block; }
+.lb p { margin: 0; max-width: 70ch; text-align: center; font-size: .98rem; line-height: 1.5; }
+.lb-btn {
+  position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.14); color: #fff;
+  border: 0; font-size: 1.8rem; width: 48px; height: 64px; cursor: pointer; border-radius: 6px;
+}
+.lb-btn:hover, .lb-btn:focus-visible { background: rgba(255,255,255,.3); }
+.lb-prev { left: 12px; } .lb-next { right: 12px; }
+.lb-close { position: fixed; top: 12px; right: 14px; background: rgba(255,255,255,.14); color: #fff; border: 0; font-size: 1.4rem; width: 44px; height: 44px; cursor: pointer; border-radius: 6px; }
+
+footer.site { max-width: 1120px; margin: 0 auto; padding: 24px 24px 56px; border-top: 1px solid var(--rule); display: flex; gap: 20px; align-items: center; justify-content: center; font-size: .95rem; }
+footer.site a { display: inline-flex; align-items: center; gap: 8px; }
+footer.site svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
